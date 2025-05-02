@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" class="min-h-screen">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %}Ebenezer DentalCare{% endblock %}</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-image: url("{% static 'images/background.jpg' %}");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    .bg-overlay {
+      background-color: rgba(255, 255, 255, 0.45); /* Less transparent for readability */
+    }
+  </style>
+</head>
+<body class="flex flex-col min-h-screen">
+
+  <div class="bg-overlay flex flex-col flex-grow">
+    <!-- Header -->
+    <header class="bg-white shadow-md p-4 flex flex-col md:flex-row justify-between items-center gap-4">
+      <h1 class="text-2xl font-bold text-blue-600">Ebenezer DentalCare</h1>
+      <nav class="space-x-4">
+        <a href="{% url 'home' %}" class="text-blue-600 hover:underline">Home</a>
+        <a href="{% url 'about' %}" class="text-blue-600 hover:underline">About Us</a>
+        <a href="{% url 'contact' %}" class="text-blue-600 hover:underline">Contact Us</a>
+      </nav>
+    </header>
+
+    <!-- Main content -->
+    <main class="flex-grow p-6">
+      {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white p-4 text-center text-gray-500">
+      &copy; {{ year }} Ebenezer DentalCare. All rights reserved.
+    </footer>
+  </div>
+
+  <!-- Appointment Modal -->
+  <div id="appointmentForm" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center px-4">
+    <div class="bg-white rounded-xl shadow-lg p-6 w-full max-w-md relative">
+      <button class="absolute top-4 right-4 text-white bg-red-600 hover:bg-red-700 py-1 px-3 rounded" onclick="closeAppointmentForm()">X</button>
+      <h3 class="text-xl font-semibold mb-4 text-center">Book an Appointment</h3>
+      <form method="POST" action="{% url 'home' %}" class="space-y-4">
+        {% csrf_token %}
+        <input type="text" name="name" placeholder="Your Name" class="w-full p-2 border rounded" required />
+        <input type="email" name="email" placeholder="Your Email" class="w-full p-2 border rounded" required />
+        <input type="date" name="date" class="w-full p-2 border rounded" required />
+        <input type="time" name="time" class="w-full p-2 border rounded" required />
+        <textarea name="message" placeholder="Additional Notes" class="w-full p-2 border rounded"></textarea>
+        <div class="text-center">
+          <button type="submit" class="bg-blue-600 text-white hover:bg-blue-700 py-2 px-6 rounded">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal Script -->
+  <script>
+    function openAppointmentForm() {
+      document.getElementById('appointmentForm').classList.remove('hidden');
+    }
+
+    function closeAppointmentForm() {
+      document.getElementById('appointmentForm').classList.add('hidden');
+    }
+  </script>
+
+</body>
+</html>

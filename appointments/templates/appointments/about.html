@@ -1,0 +1,45 @@
+{% extends 'appointments/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="max-w-5xl mx-auto p-6 bg-white rounded-xl shadow-md">
+  <h2 class="text-3xl font-bold text-center mb-6 text-blue-700">About Us</h2>
+
+  <div class="grid md:grid-cols-2 gap-6 items-center">
+    <!-- Text + Info -->
+    <div class="space-y-4 text-gray-700">
+      <p>
+        <strong>Ebenezer DentalCare</strong> opened its doors on February 25, 2025, with a mission to provide high-quality dental services focused on patient comfort, modern techniques, and personalized care for the community.
+      </p>
+      <p><strong>Open:</strong> 9:00 AM - 5:30 PM<br>
+         <strong>Days:</strong> Monday to Saturday</p>
+      <p>
+        <strong>Address:</strong><br>
+        Medical Gate, SBI Building Second Floor,<br>
+        Tamenglong, Manipur 795141
+      </p>
+    </div>
+
+    <!-- Doctor Images -->
+    <div class="flex gap-4 justify-center">
+<div class="w-1/2 h-64 overflow-hidden rounded-lg shadow-md">
+  <img src="{% static 'images/doc1.jpeg' %}" alt="Doctor 1"
+       class="w-full h-full object-cover object-center">
+</div>    </div>
+  </div>
+
+  <!-- Google Map Embed -->
+  <div class="mt-8">
+    <h3 class="text-xl font-semibold mb-2 text-blue-600">Find Us Here</h3>
+    <div class="aspect-w-16 aspect-h-9">
+      <iframe
+        class="w-full h-64 rounded-xl shadow"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3571.421893952361!2d93.4935732!3d24.9998834!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3748f9454e28eddf%3A0x55646b539e0413f4!2sSBI%20Building%2C%20Medical%20Gate%2C%20Tamenglong%2C%20Manipur%20795141!5e0!3m2!1sen!2sin!4v1714483518239!5m2!1sen!2sin"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>
+</div>
+{% endblock %}
