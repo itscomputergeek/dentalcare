@@ -117,7 +117,7 @@ STATICFILES_DIRS = [BASE_DIR / 'static']  # for development
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # settings.py
-DEFAULT_FROM_EMAIL = 'dentalcareebenezer@gmail.com'
+DEFAULT_FROM_EMAIL = 'Jayiker5@gmail.com'
 CLINIC_EMAIL = 'dentalcareebenezer@gmail.com'  # Replace with your clinic's email
 
 # Email backend settings (for local testing or use SMTP in production)
@@ -125,7 +125,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'  # Replace with your email provider's SMTP host
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'dentalcareebenezer@gmail.com'
+EMAIL_HOST_USER = 'Jayiker5@gmail.com'
 EMAIL_HOST_PASSWORD = 'rojf hpkh jlbd bshl'
 
 
